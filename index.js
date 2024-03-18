@@ -1,68 +1,32 @@
-// const userInput = document.querySelector(".userInput");
-// const submitBtn = document.querySelector(".button");
-// const appendContainer = document.querySelector("ul");
-
-// submitBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const li = document.createElement("li");
-//   const para = document.createElement("p");
-//   para.textContent = userInput.value;
-//   li.appendChild(para);
-//   appendContainer.appendChild(li);
-//   userInput.value = "";
-
-//   // delete btn
-//   const deleteBtn = document.createElement("button");
-//   deleteBtn.innerHTML = "Delete";
-//   li.appendChild(deleteBtn);
-
-//   //delete logic for li item deletion
-//   deleteBtn.addEventListener("click", () => {
-//     li.remove();
-//     crossedOutEl.remove();
-//   });
-
-//   //checkbox
-//   const checkbox = document.createElement("input");
-//   checkbox.type = "checkbox";
-//   li.insertBefore(checkbox, li.firstChild);
-//   console.log(li.textContent);
-
-//   //crossing out ligic for checbox
-//   checkbox.addEventListener("change", () => {
-//     if (checkbox.checked === true) {
-//       const crossedOutEl = document.createElement("del");
-//       para.parentNode.replaceChild(crossedOutEl, para);
-//       crossedOutEl.appendChild(para);
-//     }
-//     if (!checkbox.checked) {
-//       para.parentNode.remove();
-//       li.appendChild(para)
-//       li.appendChild(deleteBtn);
-//     }
-//   });
-// });
-
-//Refactored code
-
 const ulItem = document.querySelector("ul");
 const userInput = document.querySelector(".userInput");
 const submitBtn = document.querySelector(".button");
+let checkboxCounter = 1;
 
 //eventListener for submit form btn
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  createdItemLi(userInput.value);
+  createdLabelwithLi(userInput.value);
   userInput.value = "";
 });
 
-//to generate li task from input
-function createdItemLi(input) {
-  const listItem = document.createElement("li");
-  ulItem.appendChild(listItem);
-  listItem.textContent = input;
+//to generate label task with checkbox with unique id that is tied to label
+function createdLabelwithLi(input) {
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  const labelEl = document.createElement("label");
+  const liEl = document.createElement("li");
+  ulItem.appendChild(liEl);
+  liEl.appendChild(checkbox);
+  liEl.appendChild(labelEl);
+  labelEl.textContent = input;
 
-  deleteBtn(listItem);
+  const id = "cb" + checkboxCounter;
+  checkbox.setAttribute("id", id);
+  labelEl.setAttribute("for", id);
+  checkboxCounter++;
+  crossOutText(labelEl, checkbox)
+  deleteBtn(liEl);
 }
 
 //delete btn for li item
@@ -74,4 +38,18 @@ function deleteBtn(listItem) {
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
   });
+}
+
+// to cross out li text when checkbox checked 
+function crossOutText(labelEl, checkbox) {
+  const crossedOutEl = document.createElement("del");
+
+  checkbox.addEventListener("change", ()=> {
+    if (checkbox.checked) {
+      labelEl.innerHTML = "<del>" + labelEl.innerHTML + "</del>";
+    } else {
+      labelEl.innerHTML = labelEl.innerHTML.replace("<del>", "").replace("</del>", "");
+  }
+  })
+
 }
