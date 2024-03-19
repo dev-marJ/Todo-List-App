@@ -25,8 +25,10 @@ function createdLabelwithLi(input) {
   checkbox.setAttribute("id", id);
   labelEl.setAttribute("for", id);
   checkboxCounter++;
-  crossOutText(labelEl, checkbox)
+  crossOutText(labelEl, checkbox);
   deleteBtn(liEl);
+  sortables();
+  preventEmptySubmit(userInput, liEl);
 }
 
 //delete btn for li item
@@ -40,16 +42,34 @@ function deleteBtn(listItem) {
   });
 }
 
-// to cross out li text when checkbox checked 
+// to cross out li text when checkbox checked
 function crossOutText(labelEl, checkbox) {
   const crossedOutEl = document.createElement("del");
 
-  checkbox.addEventListener("change", ()=> {
+  checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
       labelEl.innerHTML = "<del>" + labelEl.innerHTML + "</del>";
     } else {
-      labelEl.innerHTML = labelEl.innerHTML.replace("<del>", "").replace("</del>", "");
-  }
-  })
+      labelEl.innerHTML = labelEl.innerHTML
+        .replace("<del>", "")
+        .replace("</del>", "");
+    }
+  });
+}
 
+//to be able to sort and reorganize list
+function sortables() {
+  let sortables = document.getElementById("sortables-list");
+
+  new Sortable(sortables, {
+    animation: 150,
+    // ghostClass: 'blue-background-class'
+  });
+}
+
+function preventEmptySubmit(input, liEl) {
+  if (input.value === "") {
+    // alert("Empty submit")
+    liEl.remove();
+  }
 }
