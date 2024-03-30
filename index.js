@@ -27,7 +27,6 @@ function createdLabelwithLi(input) {
   checkboxCounter++;
   crossOutText(labelEl, checkbox);
   deleteBtn(liEl);
-  sortables();
   preventEmptySubmit(userInput, liEl);
 }
 
@@ -57,15 +56,14 @@ function crossOutText(labelEl, checkbox) {
   });
 }
 
-//to be able to sort and reorganize list
-function sortables() {
-  let sortables = document.getElementById("sortables-list");
-
-  new Sortable(sortables, {
+//to be able to sort and reorganize list by drag & drop
+function sortables(ulItem) {
+  new Sortable(ulItem, {
     animation: 150,
     // ghostClass: 'blue-background-class'
   });
 }
+sortables(ulItem);
 
 function preventEmptySubmit(input, liEl) {
   if (input.value === "") {
@@ -73,3 +71,5 @@ function preventEmptySubmit(input, liEl) {
     liEl.remove();
   }
 }
+
+
