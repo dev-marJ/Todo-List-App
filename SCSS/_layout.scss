@@ -3,3 +3,21 @@ body {
     justify-content: center;
 }
 
+.todo-container {
+    margin-top: 1em;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+.result {
+    margin-top: 2em;
+}
+
+li {
+    button {
+        margin-left: auto;
+    }
+}

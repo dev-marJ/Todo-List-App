@@ -20,15 +20,74 @@ a:active {
 .container {
   margin-top: 5em;
   border: 2px solid black;
-  padding: 2em;
+  padding: 2em 1em 2em 1em;
   width: 100%;
   margin-right: 1.5em;
   margin-left: 1.5em;
+  margin-bottom: 5em;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+li {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0em 0.5em 0em;
+}
+li label {
+  margin-left: 0.5em;
+  overflow: hidden;
+}
+
+.button {
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 1px solid black;
+  background: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
 
 body {
   display: flex;
   justify-content: center;
+}
+
+.todo-container {
+  margin-top: 1em;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.result {
+  margin-top: 2em;
+}
+
+li button {
+  margin-left: auto;
+}
+
+.userInput {
+  padding: 0.3em;
+  margin-right: -4px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.userInput:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=main.css.map */

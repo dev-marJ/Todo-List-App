@@ -15,8 +15,7 @@
 PROBLEX THAT NEED FIXING:
 
 
-1) Ability to reorganize list itmes with drag & drop works only on dekstop. Need to find solution why it doesn't work i mobile view.
-    1-1) Krč, izdevās sataisīt, sortables funkciju nedrīkst likt createdLabelwithLi funkcijā un tad viss būs safe, bet es līdz galam nesaprotu kpc tas tā ir. Saprast un pārliecināties wtf
+1) delete btn as svg through javascript? Is it even possible?
 
 
 
@@ -42,12 +41,12 @@ PROBLEX THAT NEED FIXING:
 FUNCTIONS THAT I WANT MY TODO-LIST TO HAVE:
 
 
-1) Make a list item (done)
-2) Delete list item (done)
-3) cross out list item (done)
+1) (done) Make a list item 
+2) (done) Delete list item 
+3) (done) cross out list item 
 4) Edit list item
 5) Have a counter for list items (how many i have) 
-6) Ability to reorganize list itmes with drag & drop (works only on dekstop)
+6) (done) Ability to reorganize list itmes with drag & drop 
 7) Have a filter for All, Active and Completed tasks 
 8) Have ability to clear completed tasks 
 9) Light & dark mode 

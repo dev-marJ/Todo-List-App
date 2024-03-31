@@ -30,10 +30,10 @@ function createdLabelwithLi(input) {
   preventEmptySubmit(userInput, liEl);
 }
 
-//delete btn for li item
+
 function deleteBtn(listItem) {
   const deleteBtn = document.createElement("button");
-  deleteBtn.innerHTML = "Delete";
+  deleteBtn.innerHTML = "✖️";
   listItem.appendChild(deleteBtn);
 
   deleteBtn.addEventListener("click", () => {
