@@ -19,6 +19,11 @@ li {
   align-items: center;
   padding: 0.5em 0em 0.5em 0em;
 
+  button {
+    display: flex;
+    
+  }
+
   label {
     margin-left: 0.5em;
     // border: 2px solid red;

@@ -1,23 +1,24 @@
 .button {
-    // padding: 0.3em;
-    border-top: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    border-bottom: 1px solid black;
-    // font-size: 1rem;
-    background: none;
-    cursor: pointer;
+  // padding: 0.3em;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 1px solid black;
+  // font-size: 1rem;
+  background: none;
+  cursor: pointer;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 li {
-    // button {
-    //     border: none;
-    //     outline: none;
-    //     background-color: transparent;
-    // }
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+  }
 }
 

@@ -3,7 +3,6 @@ const userInput = document.querySelector(".userInput");
 const submitBtn = document.querySelector(".button");
 let checkboxCounter = 1;
 
-//eventListener for submit form btn
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   createdLabelwithLi(userInput.value);
@@ -30,11 +29,16 @@ function createdLabelwithLi(input) {
   preventEmptySubmit(userInput, liEl);
 }
 
-
 function deleteBtn(listItem) {
   const deleteBtn = document.createElement("button");
-  deleteBtn.innerHTML = "✖️";
+  // deleteBtn.innerHTML = "✖️";
+  const icon = document.createElement("i");
+  icon.classList.add("fa-solid", "fa-xmark");
+  // icon.style.width = "100px";
+  
+  deleteBtn.appendChild(icon);
   listItem.appendChild(deleteBtn);
+  
 
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
@@ -71,5 +75,3 @@ function preventEmptySubmit(input, liEl) {
     liEl.remove();
   }
 }
-
-

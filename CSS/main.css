@@ -36,6 +36,9 @@ li {
   align-items: center;
   padding: 0.5em 0em 0.5em 0em;
 }
+li button {
+  display: flex;
+}
 li label {
   margin-left: 0.5em;
   overflow: hidden;
@@ -52,6 +55,13 @@ li label {
 
 button {
   cursor: pointer;
+}
+
+li button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 18px;
 }
 
 body {
