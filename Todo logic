@@ -15,10 +15,11 @@
 PROBLEX THAT NEED FIXING:
 
 
-1) delete btn as svg through javascript? Is it even possible?
-
-
-
+1) Need to make label (inside li item) to be editable: maybe double click?   
+    So what would actually happen?    
+    1-1) When i couble click, input would pop up
+    1-2) I can edit my input
+    1-3) By pressing enter i would save now the edited input
 
 
 

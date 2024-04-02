@@ -62,6 +62,7 @@ li button {
   outline: none;
   background-color: transparent;
   font-size: 18px;
+  padding-right: 0.11em;
 }
 
 body {
