@@ -43,6 +43,13 @@ li label {
   margin-left: 0.5em;
   overflow: hidden;
 }
+li .editInput {
+  margin-left: 0.7em;
+}
+
+.crossed-out {
+  text-decoration: line-through;
+}
 
 .button {
   border-top: 0px;

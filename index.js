@@ -2,6 +2,7 @@ const ulItem = document.querySelector("ul");
 const userInput = document.querySelector(".userInput");
 const submitBtn = document.querySelector(".button");
 let checkboxCounter = 1;
+let doubleTapCounter = 0;
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -19,7 +20,6 @@ function createdLabelwithLi(input) {
   liEl.appendChild(checkbox);
   liEl.appendChild(labelEl);
   labelEl.textContent = input;
-
   const id = "cb" + checkboxCounter;
   checkbox.setAttribute("id", id);
   labelEl.setAttribute("for", id);
@@ -27,6 +27,7 @@ function createdLabelwithLi(input) {
   crossOutText(labelEl, checkbox);
   deleteBtn(liEl);
   preventEmptySubmit(userInput, liEl);
+  editListItem(labelEl, liEl, checkbox);
 }
 
 function deleteBtn(listItem) {
@@ -34,12 +35,8 @@ function deleteBtn(listItem) {
   // deleteBtn.innerHTML = "✖️";
   const icon = document.createElement("i");
   icon.classList.add("fa-solid", "fa-xmark");
-  // icon.style.width = "100px";
-  
   deleteBtn.appendChild(icon);
   listItem.appendChild(deleteBtn);
-  
-
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
   });
@@ -50,12 +47,15 @@ function crossOutText(labelEl, checkbox) {
   const crossedOutEl = document.createElement("del");
 
   checkbox.addEventListener("change", () => {
+    // console.log("Crossed out Event occured");
     if (checkbox.checked) {
-      labelEl.innerHTML = "<del>" + labelEl.innerHTML + "</del>";
+      labelEl.classList.add("crossed-out");
+      // labelEl.innerHTML = "<del>" + labelEl.innerHTML + "</del>";
     } else {
-      labelEl.innerHTML = labelEl.innerHTML
-        .replace("<del>", "")
-        .replace("</del>", "");
+      labelEl.classList.remove("crossed-out");
+      // labelEl.innerHTML = labelEl.innerHTML
+      //   .replace("<del>", "")
+      //   .replace("</del>", "");
     }
   });
 }
@@ -74,4 +74,37 @@ function preventEmptySubmit(input, liEl) {
     // alert("Empty submit")
     liEl.remove();
   }
+}
+
+function editListItem(label, liEl, checkbox) {
+  let currentTime;
+  label.addEventListener("click", () => {
+    currentTime = new Date().getTime();
+    const timeDiff = currentTime - doubleTapCounter;
+    console.log(timeDiff);
+    if (timeDiff < 300) {
+      let input = document.createElement("input");
+      input.classList.add("editInput");
+      checkbox.insertAdjacentElement("afterend", input);
+      input.value = liEl.innerText;
+      label.style.display = "none";
+
+      //To remove input when Enter is pressed
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          label.textContent = input.value;
+          input.remove();
+          label.style.display = "block";
+          console.log("Enter is pressed");
+        }
+      });
+      //To remove input when clicked outside of input (lost focus)
+      input.addEventListener("blur", () => {
+        label.textContent = input.value;
+        input.remove();
+        label.style.display = "block";
+      });
+    }
+    doubleTapCounter = currentTime;
+  });
 }
