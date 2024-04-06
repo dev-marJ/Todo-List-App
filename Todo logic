@@ -2,9 +2,8 @@ PROBLEX THAT NEED FIXING:
 
 
 
-1) When double click need to prevent from item crossing out. Looks really cheap and weird
-    1-1)  
-
+1) Implement counter for how many li elements are in ul 
+    1-1) 
 
 2) There is error occuring during editing list item: Need to fix that
 
@@ -33,7 +32,7 @@ FUNCTIONS THAT I WANT MY TODO-LIST TO HAVE:
 1) (done) Make a list item 
 2) (done) Delete list item 
 3) (done) cross out list item 
-4) Edit list item
+4) (done) Edit list item 
 5) Have a counter for list items (how many i have) 
 6) (done) Ability to reorganize list itmes with drag & drop 
 7) Have a filter for All, Active and Completed tasks 

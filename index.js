@@ -20,14 +20,15 @@ function createdLabelwithLi(input) {
   liEl.appendChild(checkbox);
   liEl.appendChild(labelEl);
   labelEl.textContent = input;
-  const id = "cb" + checkboxCounter;
-  checkbox.setAttribute("id", id);
-  labelEl.setAttribute("for", id);
-  checkboxCounter++;
+  // const id = "cb" + checkboxCounter;
+  // checkbox.setAttribute("id", id);
+  // labelEl.setAttribute("for", id);
+  // checkboxCounter++;
   crossOutText(labelEl, checkbox);
   deleteBtn(liEl);
   preventEmptySubmit(userInput, liEl);
   editListItem(labelEl, liEl, checkbox);
+  liElCounter()
 }
 
 function deleteBtn(listItem) {
@@ -100,3 +101,15 @@ function editListItem(label, liEl, checkbox) {
     doubleTapCounter = currentTime;
   });
 }
+
+
+//for testing purposes
+function liElCounter() {
+  const counter = document.querySelector(".counter");
+  const ulEl = document.querySelector(".ulEl");
+  counter.textContent = `${ulEl.children.length} items left`
+  console.log();
+}
+
+
+
