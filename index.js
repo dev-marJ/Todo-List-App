@@ -44,18 +44,11 @@ function deleteBtn(listItem) {
 
 // to cross out li text when checkbox checked
 function crossOutText(labelEl, checkbox) {
-  const crossedOutEl = document.createElement("del");
-
-  checkbox.addEventListener("change", () => {
-    // console.log("Crossed out Event occured");
+  checkbox.addEventListener("click", () => {
     if (checkbox.checked) {
       labelEl.classList.add("crossed-out");
-      // labelEl.innerHTML = "<del>" + labelEl.innerHTML + "</del>";
     } else {
       labelEl.classList.remove("crossed-out");
-      // labelEl.innerHTML = labelEl.innerHTML
-      //   .replace("<del>", "")
-      //   .replace("</del>", "");
     }
   });
 }
@@ -81,7 +74,6 @@ function editListItem(label, liEl, checkbox) {
   label.addEventListener("click", () => {
     currentTime = new Date().getTime();
     const timeDiff = currentTime - doubleTapCounter;
-    console.log(timeDiff);
     if (timeDiff < 300) {
       let input = document.createElement("input");
       input.classList.add("editInput");
@@ -89,7 +81,7 @@ function editListItem(label, liEl, checkbox) {
       input.value = liEl.innerText;
       label.style.display = "none";
 
-      //To remove input when Enter is pressed
+      //To remove input when Enter key is pressed
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           label.textContent = input.value;
