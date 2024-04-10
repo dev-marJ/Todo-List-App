@@ -1,13 +1,20 @@
 const ulItem = document.querySelector("ul");
 const userInput = document.querySelector(".userInput");
 const submitBtn = document.querySelector(".button");
+
 let checkboxCounter = 1;
 let doubleTapCounter = 0;
+let itemCounter = 0;
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  createdLabelwithLi(userInput.value);
+  if (userInput.value === "") {
+    preventEmptySubmit();
+  } else {
+    createdLabelwithLi(userInput.value);
+  }
   userInput.value = "";
+  console.log(itemCounter);
 });
 
 //to generate label task with checkbox with unique id that is tied to label
@@ -25,13 +32,14 @@ function createdLabelwithLi(input) {
   // labelEl.setAttribute("for", id);
   // checkboxCounter++;
   crossOutText(labelEl, checkbox);
-  deleteBtn(liEl);
-  preventEmptySubmit(userInput, liEl);
+  deleteBtn(liEl, checkbox);
+  // preventEmptySubmit(userInput, liEl);
   editListItem(labelEl, liEl, checkbox);
-  liElCounter()
+
+  liElCounter();
 }
 
-function deleteBtn(listItem) {
+function deleteBtn(listItem, checkbox) {
   const deleteBtn = document.createElement("button");
   // deleteBtn.innerHTML = "✖️";
   const icon = document.createElement("i");
@@ -40,16 +48,22 @@ function deleteBtn(listItem) {
   listItem.appendChild(deleteBtn);
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
+    // liElCounter();
+    if (!checkbox.checked) {
+      decrementCounter();
+    }
   });
 }
 
 // to cross out li text when checkbox checked
-function crossOutText(labelEl, checkbox) {
+function crossOutText(labelEl, checkbox, liEl) {
   checkbox.addEventListener("click", () => {
     if (checkbox.checked) {
       labelEl.classList.add("crossed-out");
+      decrementCounter();
     } else {
       labelEl.classList.remove("crossed-out");
+      incrmenetCounter();
     }
   });
 }
@@ -64,10 +78,11 @@ function sortables(ulItem) {
 sortables(ulItem);
 
 function preventEmptySubmit(input, liEl) {
-  if (input.value === "") {
-    // alert("Empty submit")
-    liEl.remove();
-  }
+  // if (input.value === "") {
+  //   // alert("Empty submit")
+  //   liEl.remove();
+  // }
+  return "Empty submit";
 }
 
 function editListItem(label, liEl, checkbox) {
@@ -102,14 +117,40 @@ function editListItem(label, liEl, checkbox) {
   });
 }
 
-
 //for testing purposes
+
 function liElCounter() {
-  const counter = document.querySelector(".counter");
-  const ulEl = document.querySelector(".ulEl");
-  counter.textContent = `${ulEl.children.length} items left`
-  console.log();
+  let counter = document.querySelector(".counter");
+  counter.textContent = `${++itemCounter} items left`;
 }
 
+function incrmenetCounter() {
+  let counter = document.querySelector(".counter");
+  counter.textContent = `${++itemCounter} items left`;
+}
 
+function decrementCounter() {
+  let counter = document.querySelector(".counter");
+  counter.textContent = `${--itemCounter} items left`;
+}
 
+function counterText() {}
+
+// function liElCounter() {
+//   let counter = document.querySelector(".counter");
+//   itemCounter = ulItem.children.length;
+//   counter.textContent = `${itemCounter} items left`;
+//   console.log(itemCounter);
+// }
+
+// function liElCounter() {
+//   let counter = document.querySelector(".counter");
+//   if (userInput.value === "") {
+//     itemCounter--;
+//     if (itemCounter < 0) {
+//       itemCounter = 1;
+//     }
+//   } else {
+//     counter.textContent = `${++itemCounter} items left`;
+//   }
+// }
