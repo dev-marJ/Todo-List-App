@@ -36,7 +36,7 @@ function createdLabelwithLi(input) {
   // preventEmptySubmit(userInput, liEl);
   editListItem(labelEl, liEl, checkbox);
 
-  liElCounter();
+  incrmenetCounter()
 }
 
 function deleteBtn(listItem, checkbox) {
@@ -119,19 +119,29 @@ function editListItem(label, liEl, checkbox) {
 
 //for testing purposes
 
-function liElCounter() {
-  let counter = document.querySelector(".counter");
-  counter.textContent = `${++itemCounter} items left`;
-}
+// function liElCounter() {
+//   let counter = document.querySelector(".counter");
+//   counter.textContent = `${itemCounter} items left`;
+// }
 
 function incrmenetCounter() {
   let counter = document.querySelector(".counter");
-  counter.textContent = `${++itemCounter} items left`;
+  
+  if (itemCounter === 0) {
+    counter.textContent = `${++itemCounter} item left`;
+  } else {
+    counter.textContent = `${++itemCounter} items left`;
+  }
 }
 
 function decrementCounter() {
   let counter = document.querySelector(".counter");
-  counter.textContent = `${--itemCounter} items left`;
+  
+  if (itemCounter === 2) {
+    counter.textContent = `${--itemCounter} item left`;
+  } else {
+    counter.textContent = `${--itemCounter} items left`;
+  }
 }
 
 function counterText() {}
