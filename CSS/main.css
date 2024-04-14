@@ -47,6 +47,13 @@ li .editInput {
   text-decoration: line-through;
 }
 
+.counter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2em;
+}
+
 .button {
   border-top: 0px;
   border-right: 0px;
