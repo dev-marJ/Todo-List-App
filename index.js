@@ -98,6 +98,10 @@ function editListItem(label, liEl, checkbox) {
       input.value = liEl.innerText;
       label.style.display = "none";
 
+      //test
+      const editInput = document.querySelector(".editInput");
+      console.log(editInput.value);
+
       //To remove input when Enter key is pressed
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -105,6 +109,12 @@ function editListItem(label, liEl, checkbox) {
           input.remove();
           label.style.display = "block";
           console.log("Enter is pressed");
+
+          //test
+          delOnEmptyEdit(editInput, liEl, checkbox)
+          // if (checkbox.checked) {
+          //   incremenetCounter();
+          // }
         }
       });
       //To remove input when clicked outside of input (lost focus)
@@ -112,6 +122,12 @@ function editListItem(label, liEl, checkbox) {
         label.textContent = input.value;
         input.remove();
         label.style.display = "block";
+
+        //test
+        delOnEmptyEdit(editInput, liEl, checkbox)
+        // if (checkbox.checked) {
+        //   incremenetCounter();
+        // }
       });
     }
     doubleTapCounter = currentTime;
@@ -207,3 +223,12 @@ function clearCompletedBtnFilter() {
     clearCompletedBtnFilter();
   });
 })();
+
+function delOnEmptyEdit(editInput, liEl, checkbox) {
+  if (editInput.value === "") {
+    liEl.remove();
+    if (!checkbox.checked) {
+      decrementCounter()
+    }
+  }
+}
