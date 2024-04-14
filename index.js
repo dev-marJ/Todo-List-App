@@ -5,6 +5,7 @@ const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const clearCompletedBtn = document.querySelector(".clear-completed");
+//Counter for generating unique id for li
 // let checkboxCounter = 1;
 let doubleTapCounter = 0;
 let itemCounter = 0;
@@ -28,6 +29,7 @@ function createdLabelwithLi(input) {
   liEl.appendChild(checkbox);
   liEl.appendChild(labelEl);
   labelEl.textContent = input;
+  // logic for generating unique id for each li item.
   // const id = "cb" + checkboxCounter;
   // checkbox.setAttribute("id", id);
   // labelEl.setAttribute("for", id);
@@ -59,17 +61,19 @@ function crossOutText(labelEl, checkbox, liEl) {
   checkbox.addEventListener("click", () => {
     if (checkbox.checked) {
       labelEl.classList.add("crossed-out");
+      //decrement li item count if checkbox is checked
       decrementCounter();
       addCompletedClass(checkbox, liEl);
     } else {
       labelEl.classList.remove("crossed-out");
+      //increment li item count if checkbox is checked
       incremenetCounter();
       addCompletedClass(checkbox, liEl);
     }
   });
 }
 
-// Sortables function to sort and reorganize li item by drag & drop
+// Sortables function to sort and reorganize li items by drag & drop
 (function (ulItem) {
   new Sortable(ulItem, {
     animation: 150,
@@ -82,6 +86,7 @@ function crossOutText(labelEl, checkbox, liEl) {
 // }
 
 function editListItem(label, liEl, checkbox) {
+  //listening for mouse clicks. If time length between 1st and 2nd mouse click (or tap) is < 300ms, then it registers as doubleclick (or double tap).
   let currentTime;
   label.addEventListener("click", () => {
     currentTime = new Date().getTime();
