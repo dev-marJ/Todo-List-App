@@ -3,6 +3,8 @@ const userInput = document.querySelector(".userInput");
 const submitBtn = document.querySelector(".button");
 const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
+const activeBtn = document.querySelector(".active");
+const clearCompletedBtn = document.querySelector(".clear-completed");
 // let checkboxCounter = 1;
 let doubleTapCounter = 0;
 let itemCounter = 0;
@@ -189,10 +191,39 @@ function filterAll() {
   })
 }
 
+function filterActive() {
+  const selectAllLiEl = document.querySelectorAll("li");
+  selectAllLiEl.forEach(element => {
+    if (!element.classList.contains("completed")) {
+      element.style.display = "flex"
+    } else {
+      element.style.display = "none"
+    }
+  })
+}
+
+function clearCompletedBtnFilter() {
+  const selectAllLiEl = document.querySelectorAll("li");
+  selectAllLiEl.forEach(element => {
+    if (element.classList.contains("completed")) {
+      element.remove()
+    } 
+  })
+}
+
+
 completedBtn.addEventListener("click", () => {
   filterCompleted()
 })
 
 allBtn.addEventListener("click", () => {
   filterAll()
+})
+
+activeBtn.addEventListener("click", () => {
+  filterActive()
+})
+
+clearCompletedBtn.addEventListener("click", () => {
+  clearCompletedBtnFilter()
 })
