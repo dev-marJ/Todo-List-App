@@ -12,14 +12,13 @@ let itemCounter = 0;
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (userInput.value === "") {
-    preventEmptySubmit();
+    // preventEmptySubmit();
   } else {
     createdLabelwithLi(userInput.value);
   }
   userInput.value = "";
 });
 
-//to generate label task with checkbox with unique id that is tied to label
 function createdLabelwithLi(input) {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
@@ -37,16 +36,12 @@ function createdLabelwithLi(input) {
   deleteBtn(liEl, checkbox);
   // preventEmptySubmit(userInput, liEl);
   editListItem(labelEl, liEl, checkbox);
-
-  incrmenetCounter();
-  // filterButton()
-  // filterCompleted()
-  addAllClassList(liEl)
+  incremenetCounter();
+  addAllClassList(liEl);
 }
 
 function deleteBtn(listItem, checkbox) {
   const deleteBtn = document.createElement("button");
-  // deleteBtn.innerHTML = "✖️";
   const icon = document.createElement("i");
   icon.classList.add("fa-solid", "fa-xmark");
   deleteBtn.appendChild(icon);
@@ -59,38 +54,32 @@ function deleteBtn(listItem, checkbox) {
   });
 }
 
-// to cross out li text when checkbox checked
+// to cross out label text (inside li) when checkbox gets checked
 function crossOutText(labelEl, checkbox, liEl) {
   checkbox.addEventListener("click", () => {
     if (checkbox.checked) {
       labelEl.classList.add("crossed-out");
       decrementCounter();
       addCompletedClass(checkbox, liEl);
-      // filterCompleted()
     } else {
       labelEl.classList.remove("crossed-out");
-      incrmenetCounter();
+      incremenetCounter();
       addCompletedClass(checkbox, liEl);
     }
   });
 }
 
-//to be able to sort and reorganize list by drag & drop
-function sortables(ulItem) {
+// Sortables function to sort and reorganize li item by drag & drop
+(function (ulItem) {
   new Sortable(ulItem, {
     animation: 150,
     // ghostClass: 'blue-background-class'
   });
-}
-sortables(ulItem);
+})(ulItem);
 
-function preventEmptySubmit(input, liEl) {
-  // if (input.value === "") {
-  //   // alert("Empty submit")
-  //   liEl.remove();
-  // }
-  return "Empty submit";
-}
+// function preventEmptySubmit(input, liEl) {
+//   return "Empty submit";
+// }
 
 function editListItem(label, liEl, checkbox) {
   let currentTime;
@@ -124,7 +113,7 @@ function editListItem(label, liEl, checkbox) {
   });
 }
 
-function incrmenetCounter() {
+function incremenetCounter() {
   let counter = document.querySelector(".counter");
 
   if (itemCounter === 0) {
@@ -152,78 +141,64 @@ function addCompletedClass(checkbox, liEl) {
   }
 }
 
-//Grab all li elements, convert them into an array and then use filter method to filter out completed li elements.
-
-// function filterCompleted() {
-//   // //all li elements grabbed
-//   const selectAllLiEl = document.querySelectorAll("li");
-//   // //li elements converted to array
-//   const convertedToArray = Array.from(selectAllLiEl)
-//   // //Filter that will show only items with class="checked"
-//   const filteredLiEl = convertedToArray.filter(element => {
-//     return element.classList.contains("completed");
-//   })
-//   console.log(filteredLiEl);
-// }
-
-
 function filterCompleted() {
   const selectAllLiEl = document.querySelectorAll("li");
-  selectAllLiEl.forEach(element => {
+  selectAllLiEl.forEach((element) => {
     if (element.classList.contains("completed")) {
-      element.style.display = "flex"
+      element.style.display = "flex";
     } else {
-      element.style.display = "none"
+      element.style.display = "none";
     }
-  })
+  });
 }
 
 function addAllClassList(liEl) {
-  return liEl.classList.add("all")
+  return liEl.classList.add("all");
 }
 
 function filterAll() {
   const selectAllLiEl = document.querySelectorAll("li");
-  selectAllLiEl.forEach(element => {
+  selectAllLiEl.forEach((element) => {
     if (element.classList.contains("all")) {
-      element.style.display = "flex"
-    } 
-  })
+      element.style.display = "flex";
+    }
+  });
 }
 
 function filterActive() {
   const selectAllLiEl = document.querySelectorAll("li");
-  selectAllLiEl.forEach(element => {
+  selectAllLiEl.forEach((element) => {
     if (!element.classList.contains("completed")) {
-      element.style.display = "flex"
+      element.style.display = "flex";
     } else {
-      element.style.display = "none"
+      element.style.display = "none";
     }
-  })
+  });
 }
 
 function clearCompletedBtnFilter() {
   const selectAllLiEl = document.querySelectorAll("li");
-  selectAllLiEl.forEach(element => {
+  selectAllLiEl.forEach((element) => {
     if (element.classList.contains("completed")) {
-      element.remove()
-    } 
-  })
+      element.remove();
+    }
+  });
 }
 
+(function () {
+  completedBtn.addEventListener("click", () => {
+    filterCompleted();
+  });
 
-completedBtn.addEventListener("click", () => {
-  filterCompleted()
-})
+  allBtn.addEventListener("click", () => {
+    filterAll();
+  });
 
-allBtn.addEventListener("click", () => {
-  filterAll()
-})
+  activeBtn.addEventListener("click", () => {
+    filterActive();
+  });
 
-activeBtn.addEventListener("click", () => {
-  filterActive()
-})
-
-clearCompletedBtn.addEventListener("click", () => {
-  clearCompletedBtnFilter()
-})
+  clearCompletedBtn.addEventListener("click", () => {
+    clearCompletedBtnFilter();
+  });
+})();
