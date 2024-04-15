@@ -10,6 +10,7 @@ const clearCompletedBtn = document.querySelector(".clear-completed");
 let doubleTapCounter = 0;
 let itemCounter = 0;
 
+
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (userInput.value === "") {
@@ -100,18 +101,15 @@ function editListItem(label, liEl, checkbox) {
 
       //test
       const editInput = document.querySelector(".editInput");
-      console.log(editInput.value);
 
       //To remove input when Enter key is pressed
       input.addEventListener("keydown", (e) => {
+        console.log("keydown fired");
         if (e.key === "Enter") {
           label.textContent = input.value;
           input.remove();
           label.style.display = "block";
-          console.log("Enter is pressed");
-
-          //test
-          delOnEmptyEdit(editInput, liEl, checkbox)
+          delOnEmptyEdit(editInput, liEl, checkbox);
           // if (checkbox.checked) {
           //   incremenetCounter();
           // }
@@ -119,12 +117,12 @@ function editListItem(label, liEl, checkbox) {
       });
       //To remove input when clicked outside of input (lost focus)
       input.addEventListener("blur", () => {
+        console.log("Blur fired");
         label.textContent = input.value;
         input.remove();
         label.style.display = "block";
 
-        //test
-        delOnEmptyEdit(editInput, liEl, checkbox)
+        delOnEmptyEdit(editInput, liEl, checkbox);
         // if (checkbox.checked) {
         //   incremenetCounter();
         // }
@@ -228,7 +226,7 @@ function delOnEmptyEdit(editInput, liEl, checkbox) {
   if (editInput.value === "") {
     liEl.remove();
     if (!checkbox.checked) {
-      decrementCounter()
+      decrementCounter();
     }
   }
 }
