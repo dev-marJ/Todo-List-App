@@ -10,7 +10,6 @@ const clearCompletedBtn = document.querySelector(".clear-completed");
 let doubleTapCounter = 0;
 let itemCounter = 0;
 
-
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (userInput.value === "") {
@@ -98,34 +97,28 @@ function editListItem(label, liEl, checkbox) {
       checkbox.insertAdjacentElement("afterend", input);
       input.value = liEl.innerText;
       label.style.display = "none";
-
-      //test
       const editInput = document.querySelector(".editInput");
 
       //To remove input when Enter key is pressed
       input.addEventListener("keydown", (e) => {
-        console.log("keydown fired");
         if (e.key === "Enter") {
           label.textContent = input.value;
-          input.remove();
+          // input.remove();
+          input.style.display = "none";
           label.style.display = "block";
-          delOnEmptyEdit(editInput, liEl, checkbox);
-          // if (checkbox.checked) {
-          //   incremenetCounter();
-          // }
         }
       });
       //To remove input when clicked outside of input (lost focus)
       input.addEventListener("blur", () => {
-        console.log("Blur fired");
+        // input.remove()
         label.textContent = input.value;
-        input.remove();
+        input.style.display = "none";
         label.style.display = "block";
+        if (editInput.style.display === "none") {
+          input.remove();
+        }
 
         delOnEmptyEdit(editInput, liEl, checkbox);
-        // if (checkbox.checked) {
-        //   incremenetCounter();
-        // }
       });
     }
     doubleTapCounter = currentTime;
