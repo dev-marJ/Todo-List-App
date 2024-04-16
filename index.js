@@ -36,7 +36,6 @@ function createdLabelwithLi(input) {
   // checkboxCounter++;
   crossOutText(labelEl, checkbox, liEl);
   deleteBtn(liEl, checkbox);
-  // preventEmptySubmit(userInput, liEl);
   editListItem(labelEl, liEl, checkbox);
   incremenetCounter();
   addAllClassList(liEl);
@@ -80,10 +79,6 @@ function crossOutText(labelEl, checkbox, liEl) {
     // ghostClass: 'blue-background-class'
   });
 })(ulItem);
-
-// function preventEmptySubmit(input, liEl) {
-//   return "Empty submit";
-// }
 
 function editListItem(label, liEl, checkbox) {
   //listening for mouse clicks. If time length between 1st and 2nd mouse click (or tap) is < 300ms, then it registers as doubleclick (or double tap).

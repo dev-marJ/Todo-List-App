@@ -2,10 +2,7 @@ PROBLEX THAT NEED FIXING:
 
 
 
-1) Need to fix error that gets console.logged when i try to edit input
-    1-1) Errors lec kad spiežu Enter
-    1-2) Atrast video par to kas ir blur listener.
-    1-3) Varbūt blurr events fireojas vienliacīgi ar click event priekš enter?
+1) Recheck all the javascript code, delete what needs to be deleted, comment what needs to be commented and then call it a day and move to styling. 
 
 
 3) Try to implement local storage maybe? OR MySQL? Not sure still Palasīt ko Dāvis rakstīja par database.
