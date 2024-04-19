@@ -23,17 +23,22 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <h1>To Do</h1>
-      <div class="todo-container">
-        <form action="">
-          <input class="userInput" type="text" placeholder="Add item" />
-          <input type="submit" class="button" value="➕️" />
-        </form>
-      </div>
+    <section>
+      <div class="container">
+        <h1>To Do</h1>
 
-      <div class="result">
-        <ul id="sortables-list" class="ulEl"></ul>
+        <div class="todo-container">
+          <form action="">
+            <input class="userInput" type="text" placeholder="Add item" />
+            <input type="submit" class="button" value="➕️" />
+          </form>
+        </div>
+
+        <div class="result">
+          <ul id="sortables-list" class="ulEl"></ul>
+        </div>
+
+        
       </div>
 
       <div class="counter-container">
@@ -43,9 +48,7 @@
         <button class="completed">Completed</button>
         <button class="clear-completed">Clear Completed</button>
       </div>
-    </div>
-
-   
+    </section>
     <script type="module" src="/index.js"></script>
   </body>
 </html>

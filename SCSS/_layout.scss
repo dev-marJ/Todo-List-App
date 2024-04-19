@@ -1,6 +1,18 @@
 body {
+    border: 2px solid green;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+section {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    flex-direction: column;
+    padding: 4em 1em 0em 1em;
+    max-width: 500px;
+    
+    margin: 0 auto;
 }
 
 .todo-container {
