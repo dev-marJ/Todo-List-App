@@ -41,7 +41,9 @@ FUNCTIONS THAT I WANT MY TODO-LIST TO HAVE:
 8) (done) Have ability to clear completed tasks with 1 click
 9) Light & dark mode 
 10) Create a local storage so that when person leaves and comes back, his tasks are saved
-
+11) X (delte) only on hover for li item (only on desktop sizes, on tablet and mobile X should always stay)
+12) edit input clicking not only on the name, but on the whole li item maybe?
+13) Varbūt pārtaisīt kā filtrējas tie items tā, lai ja esmu active vai completed, nepievienotos itemi tur, bet gan citur. Bet nu to tikai pašās beigās ja pietiks laiks
 
 
 

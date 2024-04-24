@@ -39,6 +39,7 @@ function createdLabelwithLi(input) {
   editListItem(labelEl, liEl, checkbox);
   incremenetCounter();
   addAllClassList(liEl);
+  // reorganizeUI();
 }
 
 function deleteBtn(listItem, checkbox) {
@@ -218,3 +219,29 @@ function delOnEmptyEdit(editInput, liEl, checkbox) {
     }
   }
 }
+
+const container = document.querySelector(".container");
+const section = document.querySelector("section");
+const counterContainer = document.querySelector(".counter-container");
+const filterContainer = document.querySelector(".filter-container");
+const counterEl = document.querySelector(".counter");
+const clearCompleted = document.querySelector(".clear-completed");
+
+
+
+//logic for screen width detection to put filter container outside of container 
+function reorganizeUI() {
+  if (window.innerWidth < 600) {
+    section.appendChild(filterContainer)
+    console.log(`width: ${innerWidth}`);
+  } else {
+    counterContainer.insertBefore(filterContainer, clearCompleted);
+  }
+}
+
+//listener for screen width detection 
+(function() {
+  window.addEventListener('resize', () => {
+    reorganizeUI();
+  });
+})();

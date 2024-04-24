@@ -1,35 +1,59 @@
-body {
-    border: 2px solid green;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-}
-
 section {
-    display: flex;
-    // justify-content: center;
-    flex-direction: column;
-    padding: 4em 1em 0em 1em;
-    max-width: 500px;
-    
-    margin: 0 auto;
+  display: flex;
+  // justify-content: center;
+  flex-direction: column;
+  padding: 4em 1em 0em 1em;
+  max-width: 550px;
+  margin: 0 auto;
+
+  .container {
+    padding: 2em 1em 0em 1em;
+    width: 100%;
+    margin-bottom: 1.5em;
+  }
 }
 
 .todo-container {
-    margin-top: 1em;
+  margin-top: 1em;
+}
+
+.counter-container {
+  display: flex;
+    justify-content: space-between;
+//   justify-content: center;
+//   gap: 1em;
 }
 
 form {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .result {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 li {
-    button {
-        margin-left: auto;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0em 0.5em 0em;
+
+  label {
+    margin-left: 0.5em;
+  }
+
+  .editInput {
+    margin-left: 0.7em;
+  }
+
+  button {
+    margin-left: auto;
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }

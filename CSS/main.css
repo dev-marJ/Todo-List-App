@@ -17,31 +17,23 @@ a:active {
   text-decoration: none;
 }
 
+body {
+  border: 2px solid green;
+}
+
 section {
   border: 2px solid orange;
-  margin-top: 5em;
 }
 section .container {
   border: 2px solid black;
-  padding: 2em 1em 0em 1em;
-  width: 100%;
-  margin-bottom: 1.5em;
   overflow: hidden;
 }
 
 li {
   border-bottom: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 0em 0.5em 0em;
 }
 li label {
-  margin-left: 0.5em;
   overflow: hidden;
-}
-li .editInput {
-  margin-left: 0.7em;
 }
 
 .crossed-out {
@@ -49,12 +41,11 @@ li .editInput {
 }
 
 .counter-container {
-  display: flex;
-  justify-content: space-between;
+  border: 2px solid black;
 }
 
-.counter-container {
-  border: 2px solid black;
+.filter-container {
+  border: 2px solid blue;
 }
 
 .button {
@@ -78,20 +69,26 @@ li button {
   padding-right: 0.11em;
 }
 
-body {
-  border: 2px solid green;
-}
-
 section {
   display: flex;
   flex-direction: column;
   padding: 4em 1em 0em 1em;
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
+}
+section .container {
+  padding: 2em 1em 0em 1em;
+  width: 100%;
+  margin-bottom: 1.5em;
 }
 
 .todo-container {
   margin-top: 1em;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 form {
@@ -103,8 +100,26 @@ form {
   margin-top: 2em;
 }
 
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0em 0.5em 0em;
+}
+li label {
+  margin-left: 0.5em;
+}
+li .editInput {
+  margin-left: 0.7em;
+}
 li button {
   margin-left: auto;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }
 
 .userInput {
