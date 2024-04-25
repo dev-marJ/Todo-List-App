@@ -1,3 +1,5 @@
+@use "index" as *;
+
 body {
   border: 2px solid green;
 }
@@ -12,7 +14,7 @@ section {
 }
 
 li {
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
 
   label {
     overflow: hidden;
@@ -24,9 +26,13 @@ li {
 }
 
 .counter-container {
-  border: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .filter-container {
-  border: 2px solid blue;
+  // border: 2px solid blue;
+}
+
+body {
+  font-size: $base-font;
 }

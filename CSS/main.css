@@ -29,9 +29,6 @@ section .container {
   overflow: hidden;
 }
 
-li {
-  border-bottom: 1px solid black;
-}
 li label {
   overflow: hidden;
 }
@@ -41,11 +38,11 @@ li label {
 }
 
 .counter-container {
-  border: 2px solid black;
+  border-top: 2px solid black;
 }
 
-.filter-container {
-  border: 2px solid blue;
+body {
+  font-size: 1.125rem;
 }
 
 .button {
@@ -59,6 +56,9 @@ li label {
 
 button {
   cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 li button {
@@ -77,7 +77,6 @@ section {
   margin: 0 auto;
 }
 section .container {
-  padding: 2em 1em 0em 1em;
   width: 100%;
   margin-bottom: 1.5em;
 }

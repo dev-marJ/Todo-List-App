@@ -229,7 +229,7 @@ const clearCompleted = document.querySelector(".clear-completed");
 
 
 
-//logic for screen width detection to put filter container outside of container 
+//logic for screen width detection to pull filter container outside of container 
 function reorganizeUI() {
   if (window.innerWidth < 600) {
     section.appendChild(filterContainer)
