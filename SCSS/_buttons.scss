@@ -1,9 +1,9 @@
-.button {
+.submitBtn {
   // padding: 0.3em;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
   // font-size: 1rem;
   background: none;
   cursor: pointer;
@@ -24,4 +24,12 @@ li {
     font-size: 18px;
     padding-right: 0.11em;
   }
+}
+
+.submitBtn {
+  padding: 1em;
+}
+
+.selectAll {
+  padding: 1em;
 }

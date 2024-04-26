@@ -36,19 +36,18 @@ li label {
   text-decoration: line-through;
 }
 
-.counter-container {
-  border-top: 2px solid black;
-}
-
 body {
   font-size: 1.125rem;
 }
 
-.button {
+.todo-container, .result {
+  border: 2px solid black;
+}
+
+.submitBtn {
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
-  border-bottom: 1px solid black;
   background: none;
   cursor: pointer;
 }
@@ -66,6 +65,14 @@ li button {
   background-color: transparent;
   font-size: 18px;
   padding-right: 0.11em;
+}
+
+.submitBtn {
+  padding: 1em;
+}
+
+.selectAll {
+  padding: 1em;
 }
 
 section {
@@ -95,7 +102,7 @@ form {
 }
 
 .result {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 li {
@@ -121,15 +128,10 @@ li button {
 }
 
 .userInput {
-  padding: 0.3em;
+  padding: 1em;
   margin-right: -4px;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
-  border-bottom: 1px solid black;
   width: 100%;
-}
-
-.userInput:focus {
-  outline: none;
 }

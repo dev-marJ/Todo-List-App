@@ -1,6 +1,6 @@
 const ulItem = document.querySelector("ul");
 const userInput = document.querySelector(".userInput");
-const submitBtn = document.querySelector(".button");
+const submitBtn = document.querySelector(".submitBtn");
 const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
