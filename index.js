@@ -5,6 +5,7 @@ const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const clearCompletedBtn = document.querySelector(".clear-completed");
+// const selectAll = document.querySelector(".selectAll");
 //Counter for generating unique id for li
 // let checkboxCounter = 1;
 let doubleTapCounter = 0;
@@ -227,21 +228,22 @@ const filterContainer = document.querySelector(".filter-container");
 const counterEl = document.querySelector(".counter");
 const clearCompleted = document.querySelector(".clear-completed");
 
-
-
-//logic for screen width detection to pull filter container outside of container 
+//logic for screen width detection to pull filter container outside of container
 function reorganizeUI() {
   if (window.innerWidth < 600) {
-    section.appendChild(filterContainer)
+    section.appendChild(filterContainer);
     console.log(`width: ${innerWidth}`);
   } else {
     counterContainer.insertBefore(filterContainer, clearCompleted);
   }
 }
 
-//listener for screen width detection 
-(function() {
-  window.addEventListener('resize', () => {
+//listener for screen width detection for drop down btns menu
+(function () {
+  window.addEventListener("resize", () => {
     reorganizeUI();
   });
 })();
+
+
+

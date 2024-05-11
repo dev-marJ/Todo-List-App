@@ -1,11 +1,15 @@
 @use "index" as *;
 
+
+
+
 body {
-  border: 2px solid green;
+  // border: 2px solid green;
+  background-color: $primary-background-col;
 }
 
 section {
-  border: 2px solid orange;
+  // border: 2px solid orange;
 
   .container {
     // border: 2px solid black;
@@ -14,7 +18,7 @@ section {
 }
 
 li {
-  // border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 
   label {
     overflow: hidden;
@@ -25,18 +29,24 @@ li {
   text-decoration: line-through;
 }
 
-.counter-container {
-  // border-top: 2px solid black;
+
+label {
+  cursor: pointer;
 }
 
-.filter-container {
-  // border: 2px solid blue;
-}
 
-body {
-  font-size: $base-font;
-}
+// body {
+//   font-size: $base-font;
+// }
 
 .todo-container, .result {
-  border: 2px solid black;
+  // border: 2px solid black;
 }
+
+
+
+
+.todo-container, .result, .counter-container, .filter-container {
+  background-color: white;
+}
+

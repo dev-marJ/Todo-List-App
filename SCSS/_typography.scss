@@ -1,1 +1,35 @@
-$base-font: 1.125rem;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&family=Sedan+SC&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+input {
+  font-size: 1rem;
+}
+
+li {
+  font-size: 1.15rem;
+}
+
+.counter-container {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.filter-container {
+  button {
+    font-size: 1.1rem;
+  }
+}
+
+.counter {
+  font-size: 1rem;
+}
+
+.clear-completed {
+    font-size: 1rem;
+}

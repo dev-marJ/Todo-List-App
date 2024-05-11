@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&family=Sedan+SC&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 *,
 *::before,
 *::after {
@@ -17,17 +18,71 @@ a:active {
   text-decoration: none;
 }
 
-body {
-  border: 2px solid green;
+:root[data-theme=theme-dark] {
+  --bg-color: hsl(235, 21%, 11%);
+  --card-bg: hsl(235, 24%, 19%);
+  --text-color: hsl(0, 0%, 73%);
+  --inactive-color: hsl(234, 11%, 52%);
+  --active-color: hsl(234, 39%, 85%);
+  --hover-color: hsl(236, 33%, 92%);
+  --check-color: hsl(233, 14%, 35%);
+  --shadow-color: hsla(0, 0%, 7%, 0.877);
+  --plus-color: white;
 }
 
-section {
-  border: 2px solid orange;
+:root[data-theme=theme-light] {
+  --bg-color: hsl(236, 33%, 92%);
+  --card-bg: hsl(0, 0%, 98%);
+  --text-color: hsl(0, 0%, 26%);
+  --inactive-color: hsl(236, 9%, 61%);
+  --active-color: hsl(220, 98%, 61%);
+  --hover-color: hsl(235, 19%, 35%);
+  --check-color: hsl(233, 11%, 84%);
+  --shadow-color: hsla(240, 5%, 85%, 0.603);
+  --plus-color: black;
 }
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+input {
+  font-size: 1rem;
+}
+
+li {
+  font-size: 1.15rem;
+}
+
+.counter-container {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.filter-container button {
+  font-size: 1.1rem;
+}
+
+.counter {
+  font-size: 1rem;
+}
+
+.clear-completed {
+  font-size: 1rem;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
 section .container {
   overflow: hidden;
 }
 
+li {
+  border-bottom: 1px solid black;
+}
 li label {
   overflow: hidden;
 }
@@ -36,18 +91,17 @@ li label {
   text-decoration: line-through;
 }
 
-body {
-  font-size: 1.125rem;
+label {
+  cursor: pointer;
 }
 
-.todo-container, .result {
-  border: 2px solid black;
+.todo-container, .result, .counter-container, .filter-container {
+  background-color: white;
 }
 
 .submitBtn {
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
+  border: none;
+  border-bottom: 1px solid black;
   background: none;
   cursor: pointer;
 }
@@ -95,6 +149,12 @@ section .container {
   display: flex;
   justify-content: space-between;
 }
+.counter-container .counter {
+  padding: 0.5em;
+}
+.counter-container .clear-completed {
+  padding: 0.5em;
+}
 
 form {
   display: flex;
@@ -109,13 +169,14 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em 0em 0.5em 0em;
 }
 li label {
   margin-left: 0.5em;
 }
 li .editInput {
   margin-left: 0.7em;
+  width: 60%;
+  padding: 0.8em 0.5em 0.8em 0.5em;
 }
 li button {
   margin-left: auto;
@@ -127,11 +188,44 @@ li button {
   gap: 2em;
 }
 
+.counter-container {
+  padding: 0.5em;
+}
+
+.filter-container {
+  padding: 1em;
+}
+
+ul li {
+  padding-right: 0.8em;
+  padding-left: 1em;
+}
+ul li label {
+  padding: 0.8em 0.5em 0.8em 0.5em;
+}
+ul li button {
+  font-size: 1.3rem;
+}
+
 .userInput {
   padding: 1em;
   margin-right: -4px;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
+  border-bottom: 1px solid black;
   width: 100%;
 }
+
+.userInput:focus {
+  outline: none;
+}
+
+input[type=checkbox] {
+  height: 18px;
+  width: 18px;
+  accent-color: rgb(185, 32, 103);
+  border: 3px solid black;
+}
+
+/*# sourceMappingURL=main.css.map */
