@@ -1,38 +1,24 @@
-$primary-background-col: #f5f5f5;
-$primary-list-col: white;
+// $background-col: #f5f5f5;
+// $todo-body-col: #fff;
+// $x-delete-col: gray;
+// $todo-outer-border-col: #999;
+// $li-bottom-border-col: #e6e6e6;
+// $check-mark-col: #113f67;
+// $checkbox-border-col: rgba(0, 0, 0, 0.616);
+
+
+$background-col: #f5f5f5; 
+// $background-col: rgba(128, 128, 128, 0.027);
+$todo-body-col: #ffffff;
+$x-delete-col: #303841;  
+$todo-outer-border-col: #999999b0;  
+$li-bottom-border-col: #d3d6db5d; 
+$font-col: #111;
+$check-mark-col: #3ab1c8;   
+$checkbox-border-col: #3ab1c8;
+$checkbox-border-col: rgba(0, 0, 0, 0.616);
 
 
 
 
-//just for testing, dont leave this here!!!
 
-
-.fa-solid {
-    color: gray;
-} 
-
-
-
-// :root[data-theme="theme-dark"] {
-//     --bg-color: hsl(235, 21%, 11%);
-//     --card-bg: hsl(235, 24%, 19%);
-//     --text-color: hsl(0, 0%, 73%);
-//     --inactive-color: hsl(234, 11%, 52%);
-//     --active-color: hsl(234, 39%, 85%);
-//     --hover-color: hsl(236, 33%, 92%);
-//     --check-color: hsl(233, 14%, 35%);
-//     --shadow-color: hsla(0, 0%, 7%, 0.877);
-//     --plus-color: white;
-// }
-
-// :root[data-theme="theme-light"] {
-//     --bg-color: hsl(236, 33%, 92%);
-//     --card-bg: hsl(0, 0%, 98%);
-//     --text-color: hsl(0, 0%, 26%);
-//     --inactive-color: hsl(236, 9%, 61%);
-//     --active-color: hsl(220, 98%, 61%);
-//     --hover-color: hsl(235, 19%, 35%);
-//     --check-color: hsl(233, 11%, 84%);
-//     --shadow-color: hsla(240, 5%, 85%, 0.603);
-//     --plus-color: black;
-// }

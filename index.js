@@ -5,6 +5,14 @@ const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const clearCompletedBtn = document.querySelector(".clear-completed");
+const container = document.querySelector(".container");
+const section = document.querySelector("section");
+const counterContainer = document.querySelector(".counter-container");
+const filterContainer = document.querySelector(".filter-container");
+const counterEl = document.querySelector(".counter");
+const clearCompleted = document.querySelector(".clear-completed");
+const lItems = document.querySelectorAll("li");
+
 // const selectAll = document.querySelector(".selectAll");
 //Counter for generating unique id for li
 // let checkboxCounter = 1;
@@ -46,12 +54,14 @@ function createdLabelwithLi(input) {
 function deleteBtn(listItem, checkbox) {
   const deleteBtn = document.createElement("button");
   const icon = document.createElement("i");
+  // icon.classList.add("fa-solid", "fa-xmark");
   icon.classList.add("fa-solid", "fa-xmark");
   deleteBtn.appendChild(icon);
   listItem.appendChild(deleteBtn);
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
     if (!checkbox.checked) {
+      e;
       decrementCounter();
     }
   });
@@ -221,13 +231,6 @@ function delOnEmptyEdit(editInput, liEl, checkbox) {
   }
 }
 
-const container = document.querySelector(".container");
-const section = document.querySelector("section");
-const counterContainer = document.querySelector(".counter-container");
-const filterContainer = document.querySelector(".filter-container");
-const counterEl = document.querySelector(".counter");
-const clearCompleted = document.querySelector(".clear-completed");
-
 //logic for screen width detection to pull filter container outside of container
 function reorganizeUI() {
   if (window.innerWidth < 600) {
@@ -244,6 +247,8 @@ function reorganizeUI() {
     reorganizeUI();
   });
 })();
+
+
 
 
 

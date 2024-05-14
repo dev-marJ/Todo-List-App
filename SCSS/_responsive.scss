@@ -1,13 +1,10 @@
-// @media only screen and (min-width: 500px) {
-//   .filter-container {
-//     // position: absolute;
-//     // margin-top: 8.45em;
-//     // justify-self: center;
-//     // left: 44.5%;
-//     // transform: translate(-50%);
-//     // padding: 1em;
-//     // width: 85%;
-//     // justify-self: center;
-//     // flex-basis: 50%;
-//   }
-// }
+@media only screen and (min-width: 600px) {
+    .container {
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 18px 20px -20px;
+      }
+      
+      .filter-container {
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 0px 0px;
+        // background-color: red;
+      }
+}

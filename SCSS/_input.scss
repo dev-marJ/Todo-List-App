@@ -1,24 +1,75 @@
+@use "index" as *;
+
 .userInput {
   padding: 1em;
   margin-right: -4px;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.164);
 
   width: 100%;
 }
 
 .userInput:focus {
   outline: none;
+  border: 3px solid red;
+  border-right: 3px solid red;
+}
+
+.editInput:focus {
+  outline-color: #3ab1c8;
+}
+
+.editInput {
+  // outline: none;
+  border-color: #3ab0c886;
+  outline-color: #3ab1c8;
 }
 
 //CHECKBOX STYLE
-
-
-input[type='checkbox'] {
-    height: 18px;
-    width: 18px;
-    accent-color: rgb(185, 32, 103);
-    border: 3px solid black;
+/* Round checkboxes */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 1px solid $checkbox-border-col;
+  border-radius: 50%; /* This makes the checkbox round */
+  outline: none;
+  cursor: pointer;
+  position: relative; /* Required for pseudo-elements */
+  transition: background-color 0.3s ease;
 }
+
+input[type="checkbox"]:checked {
+  // background-color: black;
+}
+
+/* Checkmark inside the checkbox */
+input[type="checkbox"]:checked::before {
+  // content: "\2713"; 
+  // display: block;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // font-size: 1.4rem;
+  // transform: translate(-45%, -51%);
+  // color: black; /* Color of the checkmark */
+
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 13px;
+  border: solid $check-mark-col;  //checkbox color
+  border-width: 0 2.5px 2.5px 0;
+  left: 9px;
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+
+// input[type="submit"] {
+//   color: blue;
+// }

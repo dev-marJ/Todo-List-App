@@ -1,19 +1,5 @@
 @use "index" as *;
 
-
-
-
-body {
-  // border: 2px solid green;
-  background-color: $primary-background-col;
-  // background-image: url(/background-idea-2-20-03.jpg);
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // height: 100vh;
-
-}
-
 section {
   // border: 2px solid orange;
 
@@ -24,7 +10,7 @@ section {
 }
 
 li {
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid rgba(128, 128, 128, 0.164);
 
   label {
     overflow: hidden;
@@ -35,24 +21,78 @@ li {
   text-decoration: line-through;
 }
 
-
 label {
   cursor: pointer;
 }
 
-
-// body {
-//   font-size: $base-font;
-// }
-
-.todo-container, .result {
-  // border: 2px solid black;
-}
-
-
-
-
-.todo-container, .result, .counter-container, .filter-container {
+form {
   background-color: white;
 }
 
+.faetures-info {
+  margin-top: 3em;
+  // border: 3px solid red;
+  text-align: center;
+}
+
+//COLORS
+// TODO BODY COLOR
+.userInput,
+li,
+.counter-container,
+.submitBtn,
+.filter-container {
+  background-color: $todo-body-col;
+}
+
+//X-delete btn col;
+.fa-solid {
+  color: $x-delete-col;
+}
+
+// Body background
+body {
+  background-color: $background-col;
+}
+
+//Font color
+* {
+  color: $font-col;
+}
+
+// Borders
+.todo-container {
+  border-left: 1px solid $todo-outer-border-col;
+  border-top: 1px solid $todo-outer-border-col;
+  border-right: 1px solid $todo-outer-border-col;
+}
+
+li {
+  border-left: 1px solid $todo-outer-border-col;
+  border-right: 1px solid $todo-outer-border-col;
+  border-bottom: 1px solid $li-bottom-border-col;
+}
+
+.counter-container {
+  border-left: 1px solid $todo-outer-border-col;
+  border-right: 1px solid $todo-outer-border-col;
+  border-bottom: 1px solid $todo-outer-border-col;
+}
+
+input[type="checkbox"]:checked {
+  border-color: #3ab1c8;
+}
+
+// .container {
+//   /* Apply a box shadow to the top and bottom borders */
+//   box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5),
+//     0px 0px 0px -5px rgba(0, 0, 0, 0.5);
+// }
+
+.container {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
+}
+
+.filter-container {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+}
