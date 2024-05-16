@@ -65,6 +65,7 @@ body {
   border-left: 1px solid $todo-outer-border-col;
   border-top: 1px solid $todo-outer-border-col;
   border-right: 1px solid $todo-outer-border-col;
+  border-bottom: 1px solid $todo-outer-border-col;
 }
 
 li {
@@ -79,6 +80,10 @@ li {
   border-bottom: 1px solid $todo-outer-border-col;
 }
 
+.result {
+  border-top: 1px solid $todo-outer-border-col;
+}
+
 input[type="checkbox"]:checked {
   border-color: #3ab1c8;
 }
@@ -89,10 +94,38 @@ input[type="checkbox"]:checked {
 //     0px 0px 0px -5px rgba(0, 0, 0, 0.5);
 // }
 
+
+//Shadows
 .container {
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
+  // box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 18px 20px -20px;
 }
 
 .filter-container {
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
+  border-left: 1px solid $todo-outer-border-col;
+  border-right: 1px solid $todo-outer-border-col;
+  border-bottom: 1px solid $todo-outer-border-col;
+  border-top: 1px solid $todo-outer-border-col;
+  border-radius: 3px;
+}
+
+
+.container {
+  h1 {
+    color: $check-mark-col;
+  }
+}
+
+
+.container {
+  .counter-container {
+    // display: none;
+  }
+}
+
+
+.userInput {
+  // box-shadow: rgba(0, 0, 0, 0.15) 50px 0px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }

@@ -7,14 +7,16 @@
   border-right: 0px;
   border-left: 0px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.164);
-
+  // box-shadow: 0 0 0 .25rem #ea13364d;
+  // box-shadow: 0 0 0 .25rem #ea13364d;
   width: 100%;
 }
 
 .userInput:focus {
   outline: none;
-  border: 3px solid red;
-  border-right: 3px solid red;
+  // border: 3px solid green;
+  // outline-color: green;
+  // box-shadow: 0 0 0 .25rem #ea13364d;
 }
 
 .editInput:focus {
