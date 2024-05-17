@@ -15,6 +15,7 @@ const counterContainer = document.querySelector(".counter-container");
 const filterContainer = document.querySelector(".filter-container");
 const counterEl = document.querySelector(".counter");
 const clearCompleted = document.querySelector(".clear-completed");
+const controlBtns = filterContainer.querySelectorAll("button");
 
 let doubleTapCounter = 0;
 let itemCounter = 0;
@@ -50,6 +51,7 @@ function createdLabelwithLi(input) {
   addAllClassList(liEl);
   // reorganizeUI();
   hideControls();
+  controlBtnsCol()
 }
 
 function deleteBtn(listItem, checkbox) {
@@ -161,9 +163,11 @@ function addCompletedClass(checkbox, liEl) {
   } else {
     liEl.classList.remove("completed");
   }
+  
 }
 
 function filterCompleted() {
+  controlBtnsCol()
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (element.classList.contains("completed")) {
@@ -179,6 +183,7 @@ function addAllClassList(liEl) {
 }
 
 function filterAll() {
+  controlBtnsCol()
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (element.classList.contains("all")) {
@@ -188,6 +193,7 @@ function filterAll() {
 }
 
 function filterActive() {
+  controlBtnsCol()
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (!element.classList.contains("completed")) {
@@ -270,3 +276,30 @@ function hideControls() {
 }
 
 hideControls();
+
+
+function controlBtnsCol() {
+  controlBtns.forEach(button => {
+    button.addEventListener("click", () => {
+      // button.style.color = "#3ab1c8";
+      console.log(button.className);
+  
+      if (button.className === "all") {
+        button.style.color = "#3ab1c8";
+        activeBtn.style.color = "black";
+        completedBtn.style.color = "black";
+      } else if (button.className === "active"){
+        button.style.color = "#3ab1c8";
+        allBtn.style.color = "black";
+        // activeBtn.style.color = "black";
+        completedBtn.style.color = "black";
+      } else {
+        button.style.color = "#3ab1c8";
+        allBtn.style.color = "black";
+        activeBtn.style.color = "black";
+      }
+    })
+  })
+}
+
+allBtn.style.color = "#3ab1c8";

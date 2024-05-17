@@ -18,6 +18,15 @@ a:active {
   text-decoration: none;
 }
 
+:root {
+  --shadow-color: #3ab1c8;
+  --shadow-color-light: white;
+}
+
+.filter-container button:hover {
+  color: red;
+}
+
 * {
   font-family: "Barlow", sans-serif;
 }
@@ -40,7 +49,7 @@ li .fa-solid {
 }
 
 .filter-container button {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
 }
 
@@ -99,6 +108,7 @@ li,
 
 .fa-solid {
   color: #303841;
+  color: gray;
 }
 
 body {
