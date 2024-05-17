@@ -56,25 +56,33 @@ form {
 
 li {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   // padding: 0.5em 0em 0.5em 0em;
 
   label {
     margin-left: 0.5em;
+    // width: 80%;
+    flex-grow: 1;
   }
 
   .editInput {
     margin-left: 0.7em;
     // height: 110%;
     width: 85%;
-    padding: 0.7em 0.5em 0.7em 0.5em;
+    padding: 0.69em 0.3em 0.69em 0.3em;
+    flex-grow: 1;
   }
 
   button {
-    margin-left: auto;
-    // min-width: 0.5em;
+    // margin-left: auto;
+    // min-width: 3em;
+    text-align: center;
     margin-left: 0.8em;
+  }
+
+  input {
+    min-width: 1.4em;
   }
 }
 
@@ -100,10 +108,6 @@ ul {
     padding-left: 1em;
     label {
       padding: 0.8em 0.5em 0.8em 0.5em;
-    }
-
-    button {
-      font-size: 1.3rem;
     }
   }
 }

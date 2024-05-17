@@ -10,6 +10,10 @@ input {
 
 li {
   font-size: 1.2rem;
+
+  .fa-solid {
+    font-size: 1.45rem;
+  }
 }
 
 .counter-container {
@@ -37,9 +41,7 @@ li {
   size: 1rem;
 }
 
-.fa-solid {
-  font-size: 1.45rem;
-}
+
 
 .fa-solid:hover {
   color: #3ab1c8;

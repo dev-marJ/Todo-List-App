@@ -29,6 +29,9 @@ input {
 li {
   font-size: 1.2rem;
 }
+li .fa-solid {
+  font-size: 1.45rem;
+}
 
 .counter-container {
   font-size: 0.9rem;
@@ -51,10 +54,6 @@ li {
 
 .submitBtn {
   size: 1rem;
-}
-
-.fa-solid {
-  font-size: 1.45rem;
 }
 
 .fa-solid:hover {
@@ -220,20 +219,24 @@ form {
 
 li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 li label {
   margin-left: 0.5em;
+  flex-grow: 1;
 }
 li .editInput {
   margin-left: 0.7em;
   width: 85%;
-  padding: 0.7em 0.5em 0.7em 0.5em;
+  padding: 0.69em 0.3em 0.69em 0.3em;
+  flex-grow: 1;
 }
 li button {
-  margin-left: auto;
+  text-align: center;
   margin-left: 0.8em;
+}
+li input {
+  min-width: 1.4em;
 }
 
 .filter-container {
@@ -256,9 +259,6 @@ ul li {
 }
 ul li label {
   padding: 0.8em 0.5em 0.8em 0.5em;
-}
-ul li button {
-  font-size: 1.3rem;
 }
 
 .userInput {
