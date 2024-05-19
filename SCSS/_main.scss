@@ -1,17 +1,12 @@
 @use "index" as *;
 
 section {
-  // border: 2px solid orange;
-
   .container {
-    // border: 2px solid black;
     overflow: hidden;
   }
 }
 
 li {
-  // border-bottom: 1px solid rgba(128, 128, 128, 0.164);
-
   label {
     overflow: hidden;
   }
@@ -29,10 +24,16 @@ form {
   background-color: white;
 }
 
-.faetures-info {
+.features-info {
   margin-top: 3em;
-  // border: 3px solid red;
   text-align: center;
+  font-size: 0.9rem;
+}
+
+.counter-container {
+  .clear-completed:hover {
+    text-decoration: underline;
+  }
 }
 
 //COLORS
@@ -49,6 +50,10 @@ li,
 .fa-solid {
   color: $x-delete-col;
   color: gray;
+}
+
+.fa-solid:hover {
+  color: #3ab1c8;
 }
 
 // Body background
@@ -89,16 +94,8 @@ input[type="checkbox"]:checked {
   border-color: #3ab1c8;
 }
 
-// .container {
-//   /* Apply a box shadow to the top and bottom borders */
-//   box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5),
-//     0px 0px 0px -5px rgba(0, 0, 0, 0.5);
-// }
-
-
 //Shadows
 .container {
-  // box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 18px 20px -20px;
 }
 
@@ -111,25 +108,12 @@ input[type="checkbox"]:checked {
   border-radius: 3px;
 }
 
-
 .container {
   h1 {
     color: $check-mark-col;
   }
 }
 
-
-.container {
-  .counter-container {
-    // display: none;
-  }
-}
-
-
 .userInput {
-  // box-shadow: rgba(0, 0, 0, 0.15) 50px 0px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
-
-
-

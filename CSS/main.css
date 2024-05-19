@@ -18,15 +18,6 @@ a:active {
   text-decoration: none;
 }
 
-:root {
-  --shadow-color: #3ab1c8;
-  --shadow-color-light: white;
-}
-
-.filter-container button:hover {
-  color: red;
-}
-
 * {
   font-family: "Barlow", sans-serif;
 }
@@ -41,11 +32,12 @@ li {
 li .fa-solid {
   font-size: 1.45rem;
 }
+li button {
+  font-size: 18px;
+}
 
 .counter-container {
   font-size: 0.9rem;
-  display: flex;
-  align-items: center;
 }
 
 .filter-container button {
@@ -63,10 +55,6 @@ li .fa-solid {
 
 .submitBtn {
   size: 1rem;
-}
-
-.fa-solid:hover {
-  color: #3ab1c8;
 }
 
 .container h1 {
@@ -93,9 +81,14 @@ form {
   background-color: white;
 }
 
-.faetures-info {
+.features-info {
   margin-top: 3em;
   text-align: center;
+  font-size: 0.9rem;
+}
+
+.counter-container .clear-completed:hover {
+  text-decoration: underline;
 }
 
 .userInput,
@@ -109,6 +102,10 @@ li,
 .fa-solid {
   color: #303841;
   color: gray;
+}
+
+.fa-solid:hover {
+  color: #3ab1c8;
 }
 
 body {
@@ -184,16 +181,6 @@ li button {
   border: none;
   outline: none;
   background-color: transparent;
-  font-size: 18px;
-  padding-right: 0.11em;
-}
-
-.submitBtn {
-  padding: 1em;
-}
-
-.selectAll {
-  padding: 1em;
 }
 
 section {
@@ -214,12 +201,16 @@ section .container h1 {
 .counter-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .counter-container .counter {
   padding: 0.5em;
 }
 .counter-container .clear-completed {
   padding: 0.5em;
+}
+.counter-container .clear-completed:hover {
+  text-decoration: underline;
 }
 
 form {
@@ -244,6 +235,7 @@ li .editInput {
 li button {
   text-align: center;
   margin-left: 0.8em;
+  padding-right: 0.11em;
 }
 li input {
   min-width: 1.4em;
@@ -269,6 +261,18 @@ ul li {
 }
 ul li label {
   padding: 0.8em 0.5em 0.8em 0.5em;
+}
+
+.features-info {
+  margin-bottom: 5em;
+}
+
+.submitBtn {
+  padding: 1em;
+}
+
+.selectAll {
+  padding: 1em;
 }
 
 .userInput {
@@ -302,10 +306,10 @@ input[type=checkbox] {
   width: 25px;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.616);
-  border-radius: 50%; /* This makes the checkbox round */
+  border-radius: 50%;
   outline: none;
   cursor: pointer;
-  position: relative; /* Required for pseudo-elements */
+  position: relative;
   transition: background-color 0.3s ease;
 }
 

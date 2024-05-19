@@ -14,12 +14,14 @@ li {
   .fa-solid {
     font-size: 1.45rem;
   }
+
+  button {
+    font-size: 18px;
+  }
 }
 
 .counter-container {
   font-size: 0.9rem;
-  display: flex;
-  align-items: center;
 }
 
 .filter-container {
@@ -43,14 +45,8 @@ li {
 
 
 
-.fa-solid:hover {
-  color: #3ab1c8;
-}
-
-
 .container {
   h1 {
     font-size: 2.5rem;
   }
 }
-
