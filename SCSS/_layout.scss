@@ -1,3 +1,5 @@
+@use "index" as *;
+
 section {
   display: flex;
   flex-direction: column;
@@ -16,9 +18,8 @@ section {
 }
 
 .counter-container {
-  display: flex;
+  @include flex-align-center;
   justify-content: space-between;
-  align-items: center;
 
   .counter {
     padding: 0.5em;
@@ -34,14 +35,11 @@ section {
 }
 
 form {
-  display: flex;
-  justify-content: center;
+  @include flex-justify-center;
 }
 
 li {
-  display: flex;
-
-  align-items: center;
+  @include flex-align-center;
 
   label {
     margin-left: 0.5em;
@@ -69,8 +67,7 @@ li {
 }
 
 .filter-container {
-  display: flex;
-  justify-content: center;
+  @include flex-justify-center;
   gap: 2em;
 }
 

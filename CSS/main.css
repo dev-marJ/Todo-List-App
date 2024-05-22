@@ -200,8 +200,8 @@ section .container h1 {
 
 .counter-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 .counter-container .counter {
   padding: 0.5em;
