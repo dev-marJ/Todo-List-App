@@ -16,18 +16,19 @@ const filterContainer = document.querySelector(".filter-container");
 const counterEl = document.querySelector(".counter");
 const clearCompleted = document.querySelector(".clear-completed");
 const controlBtns = filterContainer.querySelectorAll("button");
+//test
+// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const listItems = document.querySelectorAll("ul > li");
 
 let doubleTapCounter = 0;
 let itemCounter = 0;
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (userInput.value === "") {
-    // preventEmptySubmit();
-  } else {
+  if (userInput.value !== "") {
     createdLabelwithLi(userInput.value);
+    userInput.value = "";
   }
-  userInput.value = "";
 });
 
 function createdLabelwithLi(input) {
@@ -51,7 +52,7 @@ function createdLabelwithLi(input) {
   addAllClassList(liEl);
   // reorganizeUI();
   hideControls();
-  controlBtnsCol()
+  controlBtnsCol();
 }
 
 function deleteBtn(listItem, checkbox) {
@@ -163,11 +164,10 @@ function addCompletedClass(checkbox, liEl) {
   } else {
     liEl.classList.remove("completed");
   }
-  
 }
 
 function filterCompleted() {
-  controlBtnsCol()
+  controlBtnsCol();
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (element.classList.contains("completed")) {
@@ -183,7 +183,7 @@ function addAllClassList(liEl) {
 }
 
 function filterAll() {
-  controlBtnsCol()
+  controlBtnsCol();
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (element.classList.contains("all")) {
@@ -193,7 +193,7 @@ function filterAll() {
 }
 
 function filterActive() {
-  controlBtnsCol()
+  controlBtnsCol();
   const selectAllLiEl = document.querySelectorAll("li");
   selectAllLiEl.forEach((element) => {
     if (!element.classList.contains("completed")) {
@@ -211,7 +211,7 @@ function clearCompletedBtnFilter() {
       element.remove();
     }
   });
-  hideControls()
+  hideControls();
 }
 
 (function () {
@@ -245,17 +245,20 @@ function delOnEmptyEdit(editInput, liEl, checkbox) {
 function reorganizeUI() {
   if (window.innerWidth < 600) {
     section.appendChild(filterContainer);
-    console.log(`width: ${innerWidth}`);
+    // console.log(`width: ${innerWidth}`);
   } else {
     counterContainer.insertBefore(filterContainer, clearCompleted);
   }
 }
 
 //listener for screen width detection for drop down btns menu
+//test
 (function () {
   window.addEventListener("resize", () => {
     reorganizeUI();
   });
+  //to fire the function on page reload too
+  reorganizeUI();
 })();
 
 function hideControls() {
@@ -272,23 +275,23 @@ function hideControls() {
     // todoContainer.style.borderBottom = '1px solid rgb(192,192,192)';
     todoContainer.style.marginBottom = "0em";
   }
-  console.log(ulItem.children.length);
+  // console.log(ulItem.children.length);
 }
 
 hideControls();
 
-
+//Color change on click for filter buttons
 function controlBtnsCol() {
-  controlBtns.forEach(button => {
+  controlBtns.forEach((button) => {
     button.addEventListener("click", () => {
       // button.style.color = "#3ab1c8";
-      console.log(button.className);
-  
+      // console.log(button.className);
+
       if (button.className === "all") {
         button.style.color = "#3ab1c8";
         activeBtn.style.color = "black";
         completedBtn.style.color = "black";
-      } else if (button.className === "active"){
+      } else if (button.className === "active") {
         button.style.color = "#3ab1c8";
         allBtn.style.color = "black";
         // activeBtn.style.color = "black";
@@ -298,325 +301,8 @@ function controlBtnsCol() {
         allBtn.style.color = "black";
         activeBtn.style.color = "black";
       }
-    })
-  })
+    });
+  });
 }
 
 allBtn.style.color = "#3ab1c8";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const ulItem = document.querySelector("ul");
-// const userInput = document.querySelector(".userInput");
-// const submitBtn = document.querySelector(".submitBtn");
-// const completedBtn = document.querySelector(".completed");
-// const allBtn = document.querySelector(".all");
-// const activeBtn = document.querySelector(".active");
-// const clearCompletedBtn = document.querySelector(".clear-completed");
-// const todoContainer = document.querySelector(".todo-container");
-// const container = document.querySelector(".container");
-// const section = document.querySelector("section");
-// const counterContainer = document.querySelector(".counter-container");
-// const filterContainer = document.querySelector(".filter-container");
-// const counterEl = document.querySelector(".counter");
-// const controlBtns = filterContainer.querySelectorAll("button");
-
-// let doubleTapCounter = 0;
-// let itemCounter = 0;
-// let currentFilter = "all";  // Keep track of the current filter
-
-// submitBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   if (userInput.value !== "") {
-//     createdLabelwithLi(userInput.value);
-//     userInput.value = "";
-//   }
-// });
-
-// function createdLabelwithLi(input) {
-//   const checkbox = document.createElement("input");
-//   checkbox.setAttribute("type", "checkbox");
-//   const labelEl = document.createElement("label");
-//   const liEl = document.createElement("li");
-//   ulItem.appendChild(liEl);
-//   liEl.appendChild(checkbox);
-//   liEl.appendChild(labelEl);
-//   labelEl.textContent = input;
-//   crossOutText(labelEl, checkbox, liEl);
-//   deleteBtn(liEl, checkbox);
-//   editListItem(labelEl, liEl, checkbox);
-//   incremenetCounter();
-//   liEl.classList.add("all");
-//   hideControls();
-//   applyCurrentFilter();  // Apply the current filter to the new item
-// }
-
-// function deleteBtn(listItem, checkbox) {
-//   const deleteBtn = document.createElement("button");
-//   const icon = document.createElement("i");
-//   icon.classList.add("fa-solid", "fa-xmark");
-//   deleteBtn.appendChild(icon);
-//   listItem.appendChild(deleteBtn);
-//   deleteBtn.addEventListener("click", () => {
-//     listItem.remove();
-//     if (!checkbox.checked) {
-//       decrementCounter();
-//     }
-//     hideControls();
-//   });
-// }
-
-// function crossOutText(labelEl, checkbox, liEl) {
-//   checkbox.addEventListener("click", () => {
-//     if (checkbox.checked) {
-//       labelEl.classList.add("crossed-out");
-//       decrementCounter();
-//       liEl.classList.add("completed");
-//     } else {
-//       labelEl.classList.remove("crossed-out");
-//       incremenetCounter();
-//       liEl.classList.remove("completed");
-//     }
-//     applyCurrentFilter();  // Apply the current filter after changing the checkbox state
-//   });
-// }
-
-// function editListItem(label, liEl, checkbox) {
-//   let currentTime;
-//   label.addEventListener("click", () => {
-//     currentTime = new Date().getTime();
-//     const timeDiff = currentTime - doubleTapCounter;
-//     if (timeDiff < 300) {
-//       let input = document.createElement("input");
-//       input.classList.add("editInput");
-//       checkbox.insertAdjacentElement("afterend", input);
-//       input.value = liEl.innerText;
-//       label.style.display = "none";
-//       const editInput = document.querySelector(".editInput");
-//       hideControls();
-//       input.addEventListener("keydown", (e) => {
-//         if (e.key === "Enter") {
-//           label.textContent = input.value;
-//           input.style.display = "none";
-//           label.style.display = "block";
-//           hideControls();
-//         }
-//       });
-//       input.addEventListener("blur", () => {
-//         label.textContent = input.value;
-//         input.style.display = "none";
-//         label.style.display = "block";
-//         if (editInput.style.display === "none") {
-//           input.remove();
-//           hideControls();
-//         }
-//         if (editInput.value === "") {
-//           liEl.remove();
-//           if (!checkbox.checked) {
-//             decrementCounter();
-//           }
-//         }
-//         hideControls();
-//       });
-//     }
-//     doubleTapCounter = currentTime;
-//   });
-// }
-
-// function incremenetCounter() {
-//   if (itemCounter === 0) {
-//     counterEl.textContent = `${++itemCounter} item left`;
-//   } else {
-//     counterEl.textContent = `${++itemCounter} items left`;
-//   }
-// }
-
-// function decrementCounter() {
-//   if (itemCounter === 2) {
-//     counterEl.textContent = `${--itemCounter} item left`;
-//   } else {
-//     counterEl.textContent = `${--itemCounter} items left`;
-//   }
-// }
-
-// function filterItems(filter) {
-//   const selectAllLiEl = document.querySelectorAll("li");
-//   selectAllLiEl.forEach((element) => {
-//     switch (filter) {
-//       case "completed":
-//         element.style.display = element.classList.contains("completed") ? "flex" : "none";
-//         break;
-//       case "active":
-//         element.style.display = !element.classList.contains("completed") ? "flex" : "none";
-//         break;
-//       case "all":
-//       default:
-//         element.style.display = "flex";
-//     }
-//   });
-// }
-
-// function clearCompletedBtnFilter() {
-//   const selectAllLiEl = document.querySelectorAll("li");
-//   selectAllLiEl.forEach((element) => {
-//     if (element.classList.contains("completed")) {
-//       element.remove();
-//     }
-//   });
-//   hideControls();
-// }
-
-// (function () {
-//   completedBtn.addEventListener("click", () => {
-//     currentFilter = "completed";
-//     filterItems("completed");
-//   });
-
-//   allBtn.addEventListener("click", () => {
-//     currentFilter = "all";
-//     filterItems("all");
-//   });
-
-//   activeBtn.addEventListener("click", () => {
-//     currentFilter = "active";
-//     filterItems("active");
-//   });
-
-//   clearCompletedBtn.addEventListener("click", () => {
-//     clearCompletedBtnFilter();
-//   });
-
-//   controlBtns.forEach(button => {
-//     button.addEventListener("click", () => {
-//       controlBtns.forEach(btn => btn.style.color = "black");
-//       button.style.color = "#3ab1c8";
-//     });
-//   });
-// })();
-
-// function hideControls() {
-//   if (ulItem.children.length > 0) {
-//     counterContainer.style.display = "flex";
-//     filterContainer.style.display = "flex";
-//     container.style.boxShadow = "rgba(0, 0, 0, 0.45) 0px 15px 20px -20px";
-//     todoContainer.style.marginBottom = "1.5em";
-//   } else {
-//     counterContainer.style.display = "none";
-//     filterContainer.style.display = "none";
-//     todoContainer.style.marginBottom = "0em";
-//   }
-// }
-
-// window.addEventListener("resize", () => {
-//   reorganizeUI();
-// });
-
-// function reorganizeUI() {
-//   if (window.innerWidth < 600) {
-//     section.appendChild(filterContainer);
-//   } else {
-//     counterContainer.insertBefore(filterContainer, clearCompletedBtn);
-//   }
-// }
-
-// function applyCurrentFilter() {
-//   filterItems(currentFilter);
-// }
-
-// hideControls();
-// reorganizeUI();
-// allBtn.style.color = "#3ab1c8";
-
-
-// // Sortables function to sort and reorganize li items by drag & drop
-// (function (ulItem) {
-//   new Sortable(ulItem, {
-//     animation: 150,
-//     // ghostClass: 'blue-background-class'
-//   });
-// })(ulItem);
