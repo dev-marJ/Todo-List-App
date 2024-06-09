@@ -5,9 +5,6 @@ const completedBtn = document.querySelector(".completed");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const clearCompletedBtn = document.querySelector(".clear-completed");
-// const selectAll = document.querySelector(".selectAll");
-//Counter for generating unique id for li
-// let checkboxCounter = 1;
 const todoContainer = document.querySelector(".todo-container");
 const container = document.querySelector(".container");
 const section = document.querySelector("section");
@@ -16,12 +13,17 @@ const filterContainer = document.querySelector(".filter-container");
 const counterEl = document.querySelector(".counter");
 const clearCompleted = document.querySelector(".clear-completed");
 const controlBtns = filterContainer.querySelectorAll("button");
-//test
-// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const listItems = document.querySelectorAll("ul > li");
 
 let doubleTapCounter = 0;
 let itemCounter = 0;
+
+//To load li items from local storage when page is first opened
+document.addEventListener("DOMContentLoaded", () => {
+  loadItems();
+  hideControls();
+  controlBtnsCol();
+});
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -31,7 +33,7 @@ submitBtn.addEventListener("click", (e) => {
   }
 });
 
-function createdLabelwithLi(input) {
+function createdLabelwithLi(input, completed = false) {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   const labelEl = document.createElement("label");
@@ -40,19 +42,24 @@ function createdLabelwithLi(input) {
   liEl.appendChild(checkbox);
   liEl.appendChild(labelEl);
   labelEl.textContent = input;
-  // logic for generating unique id for each li item.
-  // const id = "cb" + checkboxCounter;
-  // checkbox.setAttribute("id", id);
-  // labelEl.setAttribute("for", id);
-  // checkboxCounter++;
+  checkbox.checked = completed;
+  if (completed) {
+    // Add crossed-out class if completed
+    labelEl.classList.add("crossed-out");
+    // Add completed class to li if completed
+    liEl.classList.add("completed");
+  }
   crossOutText(labelEl, checkbox, liEl);
   deleteBtn(liEl, checkbox);
   editListItem(labelEl, liEl, checkbox);
-  incremenetCounter();
+  // Only increment the counter if the item is not completed
+  if (!completed) {
+    incremenetCounter();
+  }
   addAllClassList(liEl);
-  // reorganizeUI();
   hideControls();
   controlBtnsCol();
+  saveItems();
 }
 
 function deleteBtn(listItem, checkbox) {
@@ -63,6 +70,7 @@ function deleteBtn(listItem, checkbox) {
   listItem.appendChild(deleteBtn);
   deleteBtn.addEventListener("click", () => {
     listItem.remove();
+    saveItems();
     if (!checkbox.checked) {
       decrementCounter();
     }
@@ -78,11 +86,13 @@ function crossOutText(labelEl, checkbox, liEl) {
       //decrement li item count if checkbox is checked
       decrementCounter();
       addCompletedClass(checkbox, liEl);
+      saveItems();
     } else {
       labelEl.classList.remove("crossed-out");
       //increment li item count if checkbox is checked
       incremenetCounter();
       addCompletedClass(checkbox, liEl);
+      saveItems();
     }
   });
 }
@@ -91,7 +101,12 @@ function crossOutText(labelEl, checkbox, liEl) {
 (function (ulItem) {
   new Sortable(ulItem, {
     animation: 150,
-    // ghostClass: 'blue-background-class'
+    // ghostClass: 'blue-background-class',
+
+    // Save the new order of li items to local storage
+    onEnd: function (evt) {
+      saveItems();
+    },
   });
 })(ulItem);
 
@@ -117,6 +132,7 @@ function editListItem(label, liEl, checkbox) {
           input.style.display = "none";
           label.style.display = "block";
           hideControls();
+          saveItems();
         }
       });
       //To remove input when clicked outside of input (lost focus)
@@ -128,6 +144,7 @@ function editListItem(label, liEl, checkbox) {
         if (editInput.style.display === "none") {
           input.remove();
           hideControls();
+          saveItems();
         }
 
         delOnEmptyEdit(editInput, liEl, checkbox);
@@ -209,6 +226,7 @@ function clearCompletedBtnFilter() {
   selectAllLiEl.forEach((element) => {
     if (element.classList.contains("completed")) {
       element.remove();
+      saveItems();
     }
   });
   hideControls();
@@ -252,7 +270,6 @@ function reorganizeUI() {
 }
 
 //listener for screen width detection for drop down btns menu
-//test
 (function () {
   window.addEventListener("resize", () => {
     reorganizeUI();
@@ -263,19 +280,15 @@ function reorganizeUI() {
 
 function hideControls() {
   if (ulItem.children.length > 0) {
-    // userInput.style.boxShadow = "rgba(0, 0, 0, 0.15) 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px";
     counterContainer.style.display = "flex";
     filterContainer.style.display = "flex";
-    // todoContainer.style.borderBottom = 'none';
     container.style.boxShadow = "rgba(0, 0, 0, 0.45) 0px 15px 20px -20px";
     todoContainer.style.marginBottom = "1.5em";
   } else {
     counterContainer.style.display = "none";
     filterContainer.style.display = "none";
-    // todoContainer.style.borderBottom = '1px solid rgb(192,192,192)';
     todoContainer.style.marginBottom = "0em";
   }
-  // console.log(ulItem.children.length);
 }
 
 hideControls();
@@ -284,9 +297,6 @@ hideControls();
 function controlBtnsCol() {
   controlBtns.forEach((button) => {
     button.addEventListener("click", () => {
-      // button.style.color = "#3ab1c8";
-      // console.log(button.className);
-
       if (button.className === "all") {
         button.style.color = "#3ab1c8";
         activeBtn.style.color = "black";
@@ -306,3 +316,29 @@ function controlBtnsCol() {
 }
 
 allBtn.style.color = "#3ab1c8";
+
+//LOGIC FOR LOCAL STORAGE
+//To save items in local storage
+function saveItems() {
+  const listItems = [];
+  ulItem.querySelectorAll("li").forEach((li) => {
+    listItems.push({
+      text: li.querySelector("label").textContent,
+      completed: li.querySelector("input[type='checkbox']").checked,
+    });
+  });
+  localStorage.setItem("listItems", JSON.stringify(listItems));
+}
+
+//To load items from local storage
+function loadItems() {
+  const listItems = JSON.parse(localStorage.getItem("listItems"));
+  if (listItems) {
+    listItems.forEach((item) => createdLabelwithLi(item.text, item.completed));
+  }
+}
+
+
+
+
+
