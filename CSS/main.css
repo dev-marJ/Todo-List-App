@@ -61,6 +61,10 @@ li button {
   font-size: 2.5rem;
 }
 
+input[type=checkbox]:checked + label {
+  color: gray;
+}
+
 section .container {
   overflow: hidden;
 }

@@ -43,10 +43,12 @@ li {
   size: 1rem;
 }
 
-
-
 .container {
   h1 {
     font-size: 2.5rem;
   }
+}
+
+input[type="checkbox"]:checked + label {
+  color: gray;
 }
